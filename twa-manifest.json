@@ -1,0 +1,49 @@
+{
+  "packageId": "com.kashpalenterprises.ldacitymap",
+  "host": "kashpalenterprises.com",
+  "name": "LDA City Lahore Map & Master Plan",
+  "launcherName": "LDA City Map",
+  "themeColor": "#0B132B",
+  "navigationColor": "#0B132B",
+  "backgroundColor": "#0B132B",
+  "enableNotifications": true,
+  "startUrl": "/?source=android",
+  "iconUrl": "https://kashpalenterprises.com/pwa-512x512.png",
+  "maskableIconUrl": "https://kashpalenterprises.com/pwa-maskable-512x512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "alias": "androidkey",
+    "path": "./android.keystore"
+  },
+  "appVersionCode": 1,
+  "appVersionName": "1.0.0",
+  "shortcuts": [
+    {
+      "name": "Master Map",
+      "shortName": "Map",
+      "url": "https://kashpalenterprises.com/?tab=map",
+      "chosenIcon": "https://kashpalenterprises.com/pwa-192x192.png"
+    },
+    {
+      "name": "Fee Calculator",
+      "shortName": "Calculator",
+      "url": "https://kashpalenterprises.com/?tab=calculator",
+      "chosenIcon": "https://kashpalenterprises.com/pwa-192x192.png"
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://kashpalenterprises.com/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": {
+      "enabled": true
+    },
+    "playBilling": {
+      "enabled": false
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "fullScopeUrl": "https://kashpalenterprises.com/"
+}

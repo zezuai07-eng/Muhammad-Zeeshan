@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.kashpalenterprises.ldacitymap",
+      "sha256_cert_fingerprints": [
+        "14:6D:E9:7F:0F:5C:CF:86:EB:8E:E1:92:23:73:E6:40:40:5E:63:73:9F:3B:9F:EE:35:E1:6A:34:07:68:2F:61"
+      ]
+    }
+  }
+]

@@ -1,0 +1,90 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User account with role-based access for Admin, Dealers, and Sellers.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "dealer", "seller"] },
+        "phone": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "agencyName": { "type": "string" },
+        "agencyLogo": { "type": "string" },
+        "officeAddress": { "type": "string" },
+        "bio": { "type": "string" },
+        "isVerified": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["email", "role"]
+    },
+    "InventoryPlot": {
+      "title": "InventoryPlot",
+      "description": "LDA City plot listing uploaded by Admin, Dealers, or Sellers.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "plotNumber": { "type": "string" },
+        "block": { "type": "string" },
+        "sector": { "type": "string" },
+        "area": { "type": "string" },
+        "price": { "type": "string" },
+        "priceNum": { "type": "number" },
+        "category": { "type": "string", "enum": ["residential", "commercial"] },
+        "features": { "type": "string" },
+        "status": { "type": "string", "enum": ["available", "under_offer", "sold"] },
+        "paymentPlan": { "type": "string" },
+        "description": { "type": "string" },
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "sellerUid": { "type": "string" },
+        "sellerName": { "type": "string" },
+        "sellerPhone": { "type": "string" },
+        "sellerWhatsapp": { "type": "string" },
+        "agencyName": { "type": "string" },
+        "agencyLogo": { "type": "string" },
+        "isVerifiedSeller": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["plotNumber", "block", "price", "status"]
+    },
+    "SellerVerification": {
+      "title": "SellerVerification",
+      "description": "Verification request submitted by dealers/sellers with CNIC and documents for admin approval.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "applicantName": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "cnic": { "type": "string" },
+        "agencyName": { "type": "string" },
+        "officeAddress": { "type": "string" },
+        "documentUrl": { "type": "string" },
+        "notes": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "createdAt": { "type": "string" },
+        "reviewedAt": { "type": "string" }
+      },
+      "required": ["userId", "applicantName", "whatsapp", "cnic", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores user profiles, roles, and agency details."
+    },
+    "/inventory/{inventoryId}": {
+      "schema": "InventoryPlot",
+      "description": "Stores LDA City plot inventory listings posted by dealers and admin."
+    },
+    "/seller_verifications/{verificationId}": {
+      "schema": "SellerVerification",
+      "description": "Stores seller verification requests for manual admin review and approval."
+    }
+  }
+}

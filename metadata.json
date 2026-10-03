@@ -1,0 +1,10 @@
+{
+  "name": "Remix Remix Kashpal Enterprise PropTech",
+  "description": "Enterprise-grade luxury corporate PropTech platform with interactive Master Geo-Intelligence map, plot finder, live GPS navigation, 3D animated dragon guide, and LDA City Lahore inventory.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

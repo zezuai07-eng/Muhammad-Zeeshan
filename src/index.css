@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0B132B;
+    color: #F8FAFC;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.theme-light body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+  }
+}
+
+/* Day Light Mode Overrides */
+html.theme-light {
+  color-scheme: light;
+}
+
+html.theme-light .leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+html.theme-light .leaflet-popup-tip {
+  background: #FFFFFF !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B132B;
+}
+
+html.theme-light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C2541;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+html.theme-light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Leaflet Container & Markers */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #0B132B !important;
+  font-family: inherit;
+}
+
+html.theme-light .leaflet-container {
+  background: #E2E8F0 !important;
+}
+
+.custom-plot-tooltip {
+  background: #FFFFFF !important;
+  border: 1px solid #D4AF37 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+  padding: 6px 10px !important;
+}
+
+.custom-plot-tooltip::before {
+  border-top-color: #FFFFFF !important;
+}
+
+/* Custom GPS & Office Marker Styles */
+.custom-gps-user-marker,
+.custom-office-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Smooth Plot Polygon Transition */
+path.leaflet-interactive {
+  transition: fill-opacity 0.2s ease, stroke-width 0.2s ease, stroke 0.2s ease;
+  outline: none;
+}
+
+/* Gradient-Stroked & Destination-Pulsing Route Polylines */
+.leaflet-polyline {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.leaflet-polyline.route-gradient-halo {
+  stroke: url(#routeGradient) !important;
+  filter: blur(2px) drop-shadow(0 0 6px rgba(217, 70, 239, 0.7));
+  animation: routeGlowBreathe 2s ease-in-out infinite;
+}
+
+.leaflet-polyline.route-gradient-pulse,
+.leaflet-polyline {
+  stroke: url(#routeGradient) !important;
+  stroke-dasharray: 12, 14;
+  animation: routePulseTowardsTarget 1.2s linear infinite, routeBeaconGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes routePulseTowardsTarget {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -26;
+  }
+}
+
+@keyframes routeGlowBreathe {
+  0%, 100% {
+    opacity: 0.35;
+    stroke-width: 8px;
+  }
+  50% {
+    opacity: 0.7;
+    stroke-width: 12px;
+  }
+}
+
+@keyframes routeBeaconGlow {
+  0% {
+    filter: drop-shadow(0 0 4px rgba(6, 182, 212, 0.8)) drop-shadow(0 0 8px rgba(239, 68, 68, 0.7));
+  }
+  100% {
+    filter: drop-shadow(0 0 8px rgba(217, 70, 239, 0.95)) drop-shadow(0 0 14px rgba(251, 191, 36, 0.85));
+  }
+}
+
+/* AI Radar Scanner Animation for Plot Highlighting */
+@keyframes aiRadarScan {
+  0% {
+    stroke-dashoffset: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    stroke-dashoffset: -40;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aiSuccessPulse {
+  0% {
+    transform: scale(0.95);
+    filter: drop-shadow(0 0 4px #10b981);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 16px #10b981) drop-shadow(0 0 25px #34d399);
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px #10b981);
+  }
+}
+
+.ai-scan-radar-active path {
+  stroke: #38bdf8 !important;
+  stroke-dasharray: 8, 8 !important;
+  animation: aiRadarScan 1.5s linear infinite !important;
+  filter: drop-shadow(0 0 8px #0284c7) !important;
+}
+
+.ai-scan-verified-circle path {
+  stroke: #10b981 !important;
+  animation: aiSuccessPulse 1.2s ease-out 1 !important;
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.6)) !important;
+}
+
+/* Utility to hide scrollbars while maintaining scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ========================================================================
+   DHANSU ANIMATED HIGHLIGHT CIRCLE & RADAR SONAR PULSE
+   ======================================================================== */
+@keyframes dhansuCircleRotate {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -48;
+  }
+}
+
+/* ========================================================================
+   CLEAN STEADY GOLDEN PLOT HIGHLIGHT CIRCLE (NO WOBBLING)
+   User: "voubling effect ha jo cirlce ma wo nahi hona chiaye"
+   ======================================================================== */
+.dhansu-animated-leaflet-circle {
+  stroke: #F59E0B !important;
+  stroke-width: 3.5px !important;
+  stroke-dasharray: 8, 5 !important;
+  fill: transparent !important;
+  fill-opacity: 0 !important;
+  filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.8)) !important;
+  animation: none !important; /* Strictly NO wobbling / spinning */
+}
+
+@keyframes dhansuSonarWave {
+  0% {
+    transform: scale(0.35);
+    opacity: 0.9;
+    border-width: 2.5px;
+  }
+  50% {
+    opacity: 0.5;
+    border-width: 1.8px;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+.dhansu-sonar-ring-1 {
+  animation: dhansuSonarWave 2.4s cubic-bezier(0.1, 0.7, 0.3, 1) infinite;
+}
+
+.dhansu-sonar-ring-2 {
+  animation: dhansuSonarWave 2.4s cubic-bezier(0.1, 0.7, 0.3, 1) infinite;
+  animation-delay: 1.2s;
+}
+
+/* ========================================================================
+   3D DRAGON MAP GUIDE & PERCH STYLING
+   ======================================================================== */
+
+.dragon-perch-target-indicator {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.dragon-perch-target-indicator:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 12px rgba(245, 158, 11, 1));
+}
+
+/* ========================================================================
+   CLEAN NATIVE MAP CANVAS STYLING
+   Antique parchment filter removed per user request: "antique perchament filter jo ha isy remove kr do. i don't like it."
+   3D CSS perspective transform removed to completely prevent tile blanking: "3D per shift krne per yaeh blank ho jata ha"
+   ======================================================================== */
+
+
+
+
+

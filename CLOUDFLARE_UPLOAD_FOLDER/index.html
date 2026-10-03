@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0B132B" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="LDA City Map" />
+    <meta name="application-name" content="LDA City Map" />
+    <meta name="format-detection" content="telephone=no" />
+    <script>
+      // Early PWA install event listener so Android Chrome never drops the install prompt
+      window.deferredInstallPrompt = null;
+      window.addEventListener('beforeinstallprompt', function(e) {
+        e.preventDefault();
+        window.deferredInstallPrompt = e;
+        window.dispatchEvent(new CustomEvent('pwa-prompt-available'));
+      });
+      window.addEventListener('appinstalled', function() {
+        window.deferredInstallPrompt = null;
+        window.dispatchEvent(new CustomEvent('pwa-installed'));
+      });
+    </script>
+    <script src="/registerSW.js"></script>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
+    <title>LDA City Lahore Map &amp; Master Plan | Kashpal Enterprises &amp; Builders</title>
+    <meta name="description" content="Official LDA City Lahore Interactive Master Cadastral Map with live GPS navigation, plot finder (5, 10 Marla, 1 &amp; 2 Kanal), Jinnah &amp; Iqbal Sector balloting results, lump-sum transfer fee calculator, and verified property inventory by Kashpal Enterprises &amp; Builders." />
+    <meta name="keywords" content="LDA City Lahore Map, LDA City Master Plan, LDA City Plot Finder, Kashpal Enterprises, LDA City Lahore plots for sale, Jinnah Sector LDA City, Iqbal Sector LDA City, LDA City file rate, LDA City balloting results, LDA City online map, LDA City GPS location, Lahore Development Authority City map, LDA City GIS map, LDA City plot rates" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Kashpal Enterprises &amp; Builders" />
+    <link rel="canonical" href="https://kashpalenterprises.com/" />
+
+    <!-- Open Graph / Facebook / WhatsApp Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kashpal Enterprises &amp; Builders" />
+    <meta property="og:title" content="LDA City Lahore Map &amp; Master Plan | Kashpal Enterprises &amp; Builders" />
+    <meta property="og:description" content="Explore the interactive LDA City Lahore Master Plan with live cadastral GIS plot finder, GPS navigation, Jinnah &amp; Iqbal sector maps, and official file rates." />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LDA City Lahore Map &amp; Master Plan | Kashpal Enterprises &amp; Builders" />
+    <meta name="twitter:description" content="Explore the interactive LDA City Lahore Master Plan with live cadastral GIS plot finder, GPS navigation, Jinnah &amp; Iqbal sector maps, and official file rates." />
+
+    <!-- Schema.org JSON-LD Structured Data for Google Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateAgent",
+          "@id": "https://kashpalenterprises.com/#organization",
+          "name": "Kashpal Enterprises & Builders",
+          "url": "https://kashpalenterprises.com/",
+          "description": "Authorized LDA City Lahore Master Consultants, PropTech GIS cadastre provider, plot sales and real estate development agency.",
+          "telephone": "+923001535898",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Site Office, 180 Ft Main Boulevard, Jinnah Sector, LDA City",
+            "addressLocality": "Lahore",
+            "addressRegion": "Punjab",
+            "addressCountry": "PK"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "31.3780",
+            "longitude": "74.3460"
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "09:00",
+            "closes": "21:00"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://kashpalenterprises.com/#website",
+          "url": "https://kashpalenterprises.com/",
+          "name": "LDA City Lahore Interactive Map & PropTech Portal",
+          "publisher": {
+            "@id": "https://kashpalenterprises.com/#organization"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "LDA City Master Cadastral Geo-Intelligence Map Engine",
+          "applicationCategory": "RealEstateApplication",
+          "operatingSystem": "All Web Browsers, iOS, Android",
+          "description": "High-precision cadastral map engine with plot search, block navigation, live GPS routing, and instant WhatsApp consultation for LDA City Lahore.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "PKR"
+          }
+        }
+      ]
+    }
+    </script>
+    <!-- Leaflet CSS for Master Geo-Intelligence Map Engine -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Google Fonts for Luxury Corporate Real Estate (Outfit / Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/assets/app.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index.css">
+  <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+  <body class="bg-[#0B132B] text-slate-100 antialiased selection:bg-[#D4AF37]/30 selection:text-[#D4AF37]">
+    <div id="root"></div>
+    <script>
+      // Universal Live Fallback: If static host (Cloudflare) serves uncompiled root index.html
+      (function() {
+        var h = window.location.hostname;
+        var isLiveProd = h === 'kashpalenterprises.com' || h.endsWith('.pages.dev') || h.endsWith('.workers.dev');
+        if (isLiveProd) {
+          var checkMounted = function() {
+            var root = document.getElementById('root');
+            if (root && root.children.length === 0) {
+              console.log('[Kashpal] Loading pre-compiled production bundle...');
+              if (!document.querySelector('link[href*="index.css"]')) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = '/assets/index.css';
+                document.head.appendChild(link);
+              }
+              var s = document.createElement('script');
+              s.type = 'module';
+              s.crossOrigin = 'anonymous';
+              s.src = '/assets/app.js';
+              document.body.appendChild(s);
+            }
+          };
+          if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(checkMounted, 50);
+          } else {
+            window.addEventListener('DOMContentLoaded', function() { setTimeout(checkMounted, 50); });
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
+
